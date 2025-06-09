@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'lambda/'
+      - 'lambda/**'
 
 jobs:
   deploy-lambda: 
@@ -30,7 +30,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
 
-      - name: Deploy Lambda Function #Zips the Lambda function and updates it in AWS
+      - name: Deploy to AWS Lambda #Zips the Lambda function and updates it in AWS
         run: |
           cd lambda
           zip -r lambda.zip .
